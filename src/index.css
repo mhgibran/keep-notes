@@ -14,12 +14,21 @@ code {
 
 .card-notes {
   width: 100%;
-  min-height: 168px;
-  height: 174px;
-  max-height: 174px;
+  height: auto;
+  /* min-height: 100px;
+  max-height: 380px; */
 }
 
 .card-notes:hover {
   background-color: #ffc107;
   cursor: pointer;
+}
+
+.w-2_5rem {
+  width: 2.5rem;
+}
+
+.btn-cta {
+  color: #ffc107; 
+  cursor: pointer
 }

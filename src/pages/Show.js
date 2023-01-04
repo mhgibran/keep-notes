@@ -17,7 +17,7 @@ export default function Show() {
   useEffect(() => {
     const loadData = async () => {
       await axios
-        .get("/notes/" + params.id)
+        .get("/notes/show/" + params.id)
         .then((res) => {
           setTitle(res?.data?.data.title);
           setNote(res?.data?.data.note);
