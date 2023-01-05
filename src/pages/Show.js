@@ -21,6 +21,7 @@ export default function Show() {
         .then((res) => {
           setTitle(res?.data?.data.title);
           setNote(res?.data?.data.note);
+          document.title = title;
         })
         .catch((error) => {
           setErrMsg(error);

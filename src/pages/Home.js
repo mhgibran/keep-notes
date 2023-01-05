@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
 import axios from "../api/Axios";
 import { ReactComponent as TrashIcon } from "../assets/svg/trash.svg";
 import { ReactComponent as ArchiveIcon } from "../assets/svg/archive_box_arrow_down.svg";
-import { ReactComponent as PaintBrushIcon } from "../assets/svg/paint_brush.svg";
+// import { ReactComponent as PaintBrushIcon } from "../assets/svg/paint_brush.svg";
 import toast, { Toaster } from "react-hot-toast";
+import Masonry from "react-masonry-css";
 
 export default function Home() {
   const [notes, setNotes] = useState([]);
@@ -71,6 +72,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    document.title = "Keep Notes";
     loadData();
   }, []);
 
@@ -85,11 +87,15 @@ export default function Home() {
               {errMsg}
             </Alert>
           )}
-          <Row className="mt-4">
+          <Masonry
+            breakpointCols={{ default: 4, 1100: 3, 700: 2, 500: 1 }}
+            className="my-masonry-grid mt-4"
+            columnClassName="my-masonry-grid_column"
+          >
             {notes.length > 0 ? (
               notes.map((item, index) => {
                 return (
-                  <Col key={index} xs={6} sm={6} md={4} xl={3} className="p-2">
+                  <div key={index} className="p-2">
                     <Card
                       border="warning"
                       className="card-notes p-3"
@@ -105,9 +111,9 @@ export default function Home() {
                           marginTop: "-.8em",
                         }}
                       >
-                        <div title="Background Options">
+                        {/* <div title="Background Options">
                           <PaintBrushIcon style={{ width: "1.2rem" }} />
-                        </div>
+                        </div> */}
                         <div
                           title="Archive Note"
                           onClick={() => archiveNote(item.id)}
@@ -157,13 +163,13 @@ export default function Home() {
                         ></Link>
                       </Card.Body>
                     </Card>
-                  </Col>
+                  </div>
                 );
               })
             ) : (
               <Alert variant="warning">Notes is not available!</Alert>
             )}
-          </Row>
+          </Masonry>
         </Fade>
       </div>
     </>

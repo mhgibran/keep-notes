@@ -16,6 +16,7 @@ export default function Create() {
 
   useEffect(() => {
     titleRef.current.focus();
+    document.title = "Create Note";
   }, []);
 
   const onSubmit = async () => {

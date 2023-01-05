@@ -57,6 +57,7 @@ export default function Archived() {
 
   useEffect(() => {
     loadData();
+    document.title = "Archived Notes";
   }, []);
 
   return (

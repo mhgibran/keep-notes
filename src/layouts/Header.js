@@ -89,7 +89,7 @@ export default function Header(props) {
           <Link
             className="btn-cta"
             onClick={() => props.onRestore("all")}
-            title="Restore Trashed Notes"
+            title="Restore Trash Notes"
           >
             <RestoreIcon />
           </Link>

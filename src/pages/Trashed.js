@@ -57,6 +57,7 @@ export default function Trashed() {
 
   useEffect(() => {
     loadData();
+    document.title = "Trashed Notes";
   }, []);
 
   return (
